@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  root "users#sign_in"
   scope :users do 
     get "/sign_up" => "users#sign_up", as: "sign_up_user"
     get "sign_in" => "users#sign_in", as: "sign_in_user"
