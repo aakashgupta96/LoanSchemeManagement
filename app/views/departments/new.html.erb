@@ -1,0 +1,10 @@
+<%= form_for(@department, url: url_for(controller: "departments", action: "create")) do |f| %>
+	<%= f.label :name, "Department Name" %>
+	<%= f.text_field :name, required: true %> </br>
+	<%= f.fields_for :officer do |builder| %>
+      <%= builder.label :email, "Enter Officer Email ID" %>
+      <%= builder.email_field :email, required: true %>
+  <% end %>
+</br>
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,5 @@
+<%= form_for(User.new,url: url_for(controller: "users", action: "create_session", method: "POST")) do |f| %>
+	<%= f.email_field :email %> </br>
+	<%= f.password_field :password %></br>
+	<%= f.submit "Log In"%>
+<% end %>

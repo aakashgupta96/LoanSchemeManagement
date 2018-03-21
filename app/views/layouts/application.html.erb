@@ -8,6 +8,10 @@
 </head>
 <body>
 
+<% unless notice.nil? %>
+<div><%=notice%></div>
+<% end %>
+
 <%= yield %>
 
 </body>
