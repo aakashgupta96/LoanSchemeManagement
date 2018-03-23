@@ -1,0 +1,8 @@
+<%= form_for(@scheme, url: url_for(controller: "schemes", action: "create")) do |f| %>
+	<%= f.label :name, "scheme Name" %>
+	<%= f.text_field :name, required: true %> </br>
+    <%= f.label :collateral, "Collateral" %>
+    <%= f.text_field :collateral, required: true %>
+</br>
+  <%= f.submit %>
+<% end %>

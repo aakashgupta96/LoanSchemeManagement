@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   end
 
   resources :departments
+  resources :schemes
 
 end
