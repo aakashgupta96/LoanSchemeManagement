@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get "/dashboard" => "admins#dashboard", as: "admin_dashboard"
   end
 
+  post "/add_scheme" => "officers#add_scheme", as: "officer_add_scheme"
   resources :departments
 
 end

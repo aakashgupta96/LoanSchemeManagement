@@ -19,4 +19,14 @@ class OfficersController < ApplicationController
 		
 	end
 
+	def add_scheme 
+		department = Department.find_by_user_id(current_user.id)
+		@scheme = department.schemes.create(name: params[:name], guidelines: params[:guidelines], collateral: params[:collateral], ticket_size: params[:ticket_size], interest_rate: params[:interest_rate])
+		if @scheme.save
+			return redirect_to officer_dashboard_path, notice: "Successfully created scheme!"
+		else
+			return redirect_to officer_add_scheme_path, notice: "Unable to create scheme"
+		end
+	end
+
 end

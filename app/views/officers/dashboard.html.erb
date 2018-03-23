@@ -1,1 +1,13 @@
 <%= link_to "Sign Out", destroy_user_session_path, method: "POST" %>
+
+<%= form_tag '/add_scheme', id: "add_scheme", remote: true do %>
+		<%= text_field_tag :name %>
+    <%= text_area_tag :guidelines %>
+    <%= text_field_tag :collateral %>
+    <%= number_field_tag :ticket_size %>
+    <%= number_field_tag :interest_rate %>
+
+    <br>
+    <%= submit_tag "Create Scheme" %>
+
+<% end %>
