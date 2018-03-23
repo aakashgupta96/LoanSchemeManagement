@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321202143) do
+ActiveRecord::Schema.define(version: 20180323163552) do
 
   create_table "departments", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(version: 20180321202143) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "schemes", force: :cascade do |t|
+    t.string   "name"
+    t.text     "guidelines"
+    t.string   "collateral"
+    t.integer  "ticket_size"
+    t.float    "interest_rate"
+    t.integer  "department_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "schemes", ["department_id"], name: "index_schemes_on_department_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                             null: false
