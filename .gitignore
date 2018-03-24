@@ -6,7 +6,6 @@
 
 # Ignore bundler config.
 /.bundle
-/.idea/workspace.xml
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -17,3 +16,5 @@
 !/log/.keep
 /tmp
 # /config/local_env*
+
+.idea/workspace.xml
