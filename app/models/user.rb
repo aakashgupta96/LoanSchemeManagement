@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
 	has_one :department
 	enum role: {applicant: 0, officer: 1, admin: 2}
 

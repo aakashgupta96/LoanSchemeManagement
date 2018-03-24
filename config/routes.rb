@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "users#sign_in"
+  root 'users#signup'
   scope :users do 
     get "/sign_up" => "users#sign_up", as: "sign_up_user"
     get "sign_in" => "users#sign_in", as: "sign_in_user"
@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     post "/sign_out" => "users#sign_out", as: "destroy_user_session"
   end
 
+  # root 'home#loan_app'
+
   scope :officers do
     get "/dashboard" => "officers#dashboard", as: "officer_dashboard"
   end
@@ -23,4 +25,13 @@ Rails.application.routes.draw do
 
   resources :departments
 
+  namespace :api do
+    namespace :v1 do
+      post '/users/login' => 'users_api#login'
+      post '/users/logout' => 'users_api#logout'
+    end
+  end
+
+  get 'app' => 'home#loan_app'
+  match '/app/*path' => 'home#loan_app', via: [:get]
 end

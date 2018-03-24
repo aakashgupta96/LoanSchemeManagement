@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321202143) do
+ActiveRecord::Schema.define(version: 20180324074735) do
 
   create_table "departments", force: :cascade do |t|
     t.string   "name"
@@ -21,13 +21,15 @@ ActiveRecord::Schema.define(version: 20180321202143) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                             null: false
+    t.string   "email",                                null: false
     t.string   "password"
-    t.integer  "role",                 default: 0,  null: false
+    t.integer  "role",                 default: 0,     null: false
     t.string   "name"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "reset_password_token", default: ""
+    t.string   "access_token"
+    t.boolean  "disabled",             default: false
   end
 
 end
