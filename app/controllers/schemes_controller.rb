@@ -23,9 +23,13 @@ class SchemesController < OfficersController
 	end
 
 	def viewAll 
+		@applications = LoanApplication.all
 	end
 
 	def view
+		appName = params[:val]
+		@app = LoanApplication.find_by_name(appName)
+
 	end
 
 	def scheme_params

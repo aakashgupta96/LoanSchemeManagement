@@ -1,0 +1,3 @@
+<%= @applications.each do |app|%>
+ <%= link_to app.name , view_path(:val => app.name)%>
+<% end%>

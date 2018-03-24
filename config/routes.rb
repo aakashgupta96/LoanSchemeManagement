@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   scope :officers do
     get "/dashboard" => "officers#dashboard", as: "officer_dashboard"
+    get "/viewAll" => "schemes#viewAll", as: "viewAll"
+    get "/view" => "schemes#view", as: "view"
   end
 
   scope :admins do
