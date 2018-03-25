@@ -10,8 +10,7 @@ module Api
         user = User.find_by_email email
         if user
           if user.password != password
-            throw_wrong_credentials
-            return
+            return throw_wrong_credentials
           end
           user.update access_token: SecureRandom.hex
         else

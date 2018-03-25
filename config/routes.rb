@@ -27,8 +27,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      post '/users/login' => 'users_api#login'
-      post '/users/logout' => 'users_api#logout'
+      match '/users/login' => 'users_api#login', via: [:post]
+      match '/users/login' => 'users_api#cors_preflight_check', via: [:options]
+
+      match '/users/logout' => 'users_api#logout', via: [:post]
+      match '/users/logout' => 'users_api#cors_preflight_check', via: [:options]
     end
   end
 

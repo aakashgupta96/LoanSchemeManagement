@@ -11,4 +11,7 @@ class User < ActiveRecord::Base
 		UserMailer.reset_password_instructions(self).deliver_now
 	end
 
+	def as_json(options = {})
+		UserSerializer.new(self).as_json(root: false)
+	end
 end
