@@ -32,6 +32,13 @@ class ApiController < ActionController::API
     return response_data(nil, "You need to login", 200, error: error)
   end
 
+  def throw_wrong_credentials
+    error = Entities::Error.new
+    error.code = 400
+    error.message = "You have put wrong credentials"
+    return response_data(nil, "You have put wrong credentials", 200, error: error)
+  end
+
   def throw_unauthorised
     error = Entities::Error.new
     error.code = 401
