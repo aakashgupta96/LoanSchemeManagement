@@ -24,8 +24,9 @@ module Api
       end
 
       def logout
+        data = Hash.new
         @current_user.update access_token: nil
-        response_data "User Logged Out", "You are logged out", 200
+        response_data data, "You are logged out", 200
       end
     end
   end
