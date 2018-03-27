@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     post "/create" => "users#create", as: "create_user_session"
     post "/sign_in" => "users#create_session"
     post "/sign_out" => "users#sign_out", as: "destroy_user_session"
+    
   end
 
   scope :officers do
@@ -23,5 +24,9 @@ Rails.application.routes.draw do
 
   post "/add_scheme" => "officers#add_scheme", as: "officer_add_scheme"
   resources :departments
+
+  resources :conversations do
+    resources :messages
+  end
 
 end

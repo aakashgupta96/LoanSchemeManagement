@@ -1,0 +1,24 @@
+<% if @over_ten %>
+   <%= link_to 'Show Previous', '?m=all' %>
+<% end %>
+
+<ul>
+<% @messages.each do |message| %>
+	<% if message.body %>
+	<li>
+		<% user = User.find(message.user_id) %>
+		<%= user.email %><%= message.message_time %>
+		<br>
+		<%= message.body %>
+	<% end %>
+</li>
+<% end %>
+</ul>
+
+<%= form_for [@conversation, @message] do |f| %>
+    <%= f.text_area :body %>
+    <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+    <%= f.submit "Add Reply" %>
+<% end %>
+
+<%= link_to "All Conversations", conversations_path %>

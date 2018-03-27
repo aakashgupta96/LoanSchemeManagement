@@ -1,0 +1,33 @@
+<h3>Messages</h3>
+
+<ul>
+<%= @conversations.each do |conversation| %>
+
+	<% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+        <% if conversation.sender_id == current_user.id %>
+            <% recipient = User.find(conversation.recipient_id) %>
+        <% else %>
+            <% recipient = User.find(conversation.sender_id) %>
+        <% end %>
+        <li>
+      	<%= link_to recipient.email, conversation_messages_path(conversation)%>
+      </li>
+   <% end %>
+<% end %>
+</ul>
+	
+<% if !current_user.officer? %>
+<h3>Departments Nodal Officers List</h3>
+
+<ol>
+<% @users.each do |user| %>
+  <% if user.officer? %>
+  <li>
+  	<%= user.email %> <%= link_to 'Send Message', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
+  </li>
+  <% end %>
+<% end %>
+</ol>
+<% end %>
+
+<%= link_to "Dashboard", user_dashboard_path %>
