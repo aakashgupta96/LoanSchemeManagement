@@ -20,12 +20,12 @@ module Api
         data = Hash.new
         data[:user] = user
         data[:user_access_token] = user.access_token
-        response_data(data, "User Logged In", 200)
+        response_data data, "User Logged In", 200
       end
 
       def logout
         @current_user.update access_token: nil
-        response_data nil, "You are logged out", 200
+        response_data "User Logged Out", "You are logged out", 200
       end
     end
   end
