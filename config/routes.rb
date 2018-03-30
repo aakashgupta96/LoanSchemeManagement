@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   end
 
   get "/tickets" => 'tickets#index', as: 'tickets_index'
-  get "/open_change_status" => 'tickets#open_change_status', as: 'open_change_status_ticket'
-  get "/resolved_change_status" => 'tickets#resolved_change_status', as: 'resolved_change_status_ticket'
-  get "/escalated_change_status" => 'tickets#escalated_change_status', as: 'escalated_change_status_ticket'
+  post "/ticket/:id/open_change_status" => 'tickets#open_change_status', as: 'open_change_status_ticket'
+  post "/ticket/:id/resolved_change_status" => 'tickets#resolved_change_status', as: 'resolved_change_status_ticket'
+  post "/ticket/:id/escalated_change_status" => 'tickets#escalated_change_status', as: 'escalated_change_status_ticket'
 end

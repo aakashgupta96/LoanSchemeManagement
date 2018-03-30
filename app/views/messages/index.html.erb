@@ -2,22 +2,21 @@
    <%= link_to 'Show Previous', '?m=all' %>
 <% end %>
 
-
-
+<% ticket = @ticket %>
+		<% if ticket.new_ticket? %>
+				<%= link_to "Open", open_change_status_ticket_path(@ticket.id),method: :post %>
+				<%= link_to "Resolved", resolved_change_status_ticket_path(@ticket),method: :post %>
+				<%= link_to "Escalated", escalated_change_status_ticket_path(@ticket.id),method: :post %>
+		<% elsif ticket.open? %>
+				<%= link_to "Resolved", resolved_change_status_ticket_path(@ticket.id),method: :post %>
+				<%= link_to "Escalated", escalated_change_status_ticket_path(@ticket.id),method: :post %>
+		<% end %> 
 
 <ul>
 <% @messages.each do |message| %>
 	<% if message.body %>
 	<li>
-		<% ticket = Ticket.find(message.ticket_id) %>
-		<% if ticket.new_ticket? %>
-				<%= link_to "Open", open_change_status_ticket_path(ticket) %>
-				<%= link_to "Resolved", resolved_change_status_ticket_path(@ticket) %>
-				<%= link_to "Escalated", escalated_change_status_ticket_path(@ticket) %>
-		<% elsif ticket.open? %>
-				<%= link_to "Resolved", resolved_change_status_ticket_path(@ticket) %>
-				<%= link_to "Escalated", escalated_change_status_ticket_path(@ticket) %>
-		<% end %> 
+		
 		<% user = User.find(message.user_id) %>
 		<%= user.email %>
 		<br>
