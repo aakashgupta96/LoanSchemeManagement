@@ -68,7 +68,7 @@ button {
 }
 
 #li_dash:hover {
-  text-decoration: none;
+  text-decoration: none	;
   cursor: pointer;
 }
 
@@ -86,4 +86,52 @@ button {
   padding-bottom: 12px;
       margin-top: 10px;
   box-sizing: border-box;
+}
+
+table{
+	display:flex;
+}
+.box{
+ position: absolute;
+
+  height: 270px;
+  z-index: 15;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -150px;
+  border:2px solid black;
+ padding-top:20px;
+ padding-left:20px;
+padding-right:20px;
+padding-bottom:50px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+.edit{
+	 font-weight:bold;
+}
+.edit{
+	 font-weight:bold;
+}
+
+.panel-group{
+	width:50%;
+	margin:0px auto;
+
+}
+
+.state{
+	margin:0px auto;
+}
+.panel-body {
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn
+{
+	width:80px;
 }

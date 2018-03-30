@@ -1,20 +1,92 @@
-<%= form_for(@ministry, url: url_for(controller: "ministries", action: "create")) do |f| %>
+<!-- <div class="box">
 <table>
+<%= form_for(@ministry, url: url_for(controller: "ministries", action: "create")) do |f| %>
+
 	<tr>
-	<td><%= f.label :name, "Minitry Name" %></td>
+	<td class="edit"><%= f.label :name, "Ministry Name" %></td>
 	<td><%= f.text_field :name, required: true %> </td>
 	</tr>
 	<tr>
-	<td><%= f.label :description, "Description" %></td>
+	<td class="edit"><%= f.label :description, "Description" %></td>
 	<td><%= f.text_field :description, required: true %> </td>
 	</tr>
-	
+	<tr>
 	<%= f.fields_for :departments do |builder| %>
 		<% builder.object.build_officer %>
     <%= render "/shared/department_fields", :f => builder %>
   <% end %>
-	<p><%= link_to_add_fields "Add Department", f, :departments %></p>
+  </tr>
+  <tr>
+	<td sclass="edit"><p><%= link_to_add_fields "Add Department", f, :departments %></p></td>
+	</tr>
   
-  <p><%= f.submit "Submit" %></p>
-  </table>
-<% end %>
+ <tr>
+ <td><p><%= f.submit "Submit", class:"btn btn-danger" %></p></td>
+ </tr> 
+  <% end %>
+</table>
+</div>
+
+
+ -->
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <div class="container">
+  <center><h2>TICKETS</h2></center>
+  
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">Ticket description</div>
+      <div class="panel-body">Department
+      	<div> Status:<button type="button" class="btn btn-info">New	</button></div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Ticket description</div>
+      <div class="panel-body">Department
+      	<div> Status:<button type="button" class="btn btn-warning">Open</button></div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Ticket description</div>
+      <div class="panel-body">Department
+      	<div> Status:<button type="button" class="btn btn-success">Resolved</button></div>
+      </div>
+    </div>	
+    <div class="panel panel-default">
+      <div class="panel-heading">Ticket description</div>
+      <div class="panel-body">Department
+       <div> Status: <button type="button" class="btn btn-danger">Escalated</button></div>
+      </div>
+    </div>	
+    <div class="panel panel-default">
+      <div class="panel-heading">Ticket description</div>
+      <div class="panel-body">Department
+     <div> Status:<button type="button" class="btn btn-success">Resolved</button></div>
+      </div>
+      </div>
+
+       <div class="panel panel-default">
+      <div class="panel-heading">Ticket description</div>
+      <div class="panel-body">Department
+     <div> Status:<button type="button" class="btn btn-success">Resolved</button></div>
+      </div>
+      </div>
+       <div class="panel panel-default">
+      <div class="panel-heading">Ticket description</div>
+      <div class="panel-body">Department
+     <div> Status:<button type="button" class="btn btn-success">Resolved</button></div>
+      </div>
+      </div>
+       <div class="panel panel-default">
+      <div class="panel-heading">Ticket description</div>
+      <div class="panel-body">Department
+     <div> Status:<button type="button" class="btn btn-success">Resolved</button></div>
+      </div>
+      </div>
+    </div>	
+   
+  </div>
