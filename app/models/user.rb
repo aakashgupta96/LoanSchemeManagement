@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 	has_one :department
+	has_many :tickets
+	has_many :messages
 	enum role: {applicant: 0, officer: 1, admin: 2, helper: 3, back_user: 4}
 
 	def self.with_details(user_hash)

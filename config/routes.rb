@@ -37,4 +37,8 @@ Rails.application.routes.draw do
 
   get 'app' => 'home#loan_app'
   match '/app/*path' => 'home#loan_app', via: [:get]
+
+  resources :tickets do
+    resources :messages
+  end
 end
