@@ -30,19 +30,21 @@ module Api
       end
 
       def edit_details
-        data_uri_parts = params["image"].match(/\Adata:([-\w]+\/[-\w\+\.]+)?;base64,(.*)/m) || []
-        extension = MIME::Types[data_uri_parts[1]].first.preferred_extension
-        user = @current_user
-        file_name = 'profile' + user.id.to_s + SecureRandom.hex + '.' + extension
+        if params["image"]
+          data_uri_parts = params["image"].match(/\Adata:([-\w]+\/[-\w\+\.]+)?;base64,(.*)/m) || []
+          extension = MIME::Types[data_uri_parts[1]].first.preferred_extension
+          user = @current_user
+          file_name = 'profile' + user.id.to_s + SecureRandom.hex + '.' + extension
 
-        File.open(Rails.root.join('public', 'uploads', file_name).to_s, 'wb') do |file|
-          file.write(Base64.decode64(data_uri_parts[2]))
+          File.open(Rails.root.join('public', 'uploads', file_name).to_s, 'wb') do |file|
+            file.write(Base64.decode64(data_uri_parts[2]))
+          end
+          file_path = "#{Rails.root}/public/uploads/#{file_name}"
+          user.image = send_to_amazon(file_path)
         end
-        file_path = "#{Rails.root}/public/uploads/#{file_name}"
-        user.image = send_to_amazon(file_path)
-        user.name = params["name"]
-        user.phone = params["phone"]
-        user.address = params["address"]
+        user.name = params["name"] if params["name"]
+        user.phone = params["phone"] if params["phone"]
+        user.address = params["address"] if params["address"]
         user.save
         data = Hash.new
         data[:user] = user
