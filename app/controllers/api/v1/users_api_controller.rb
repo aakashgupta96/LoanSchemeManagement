@@ -28,6 +28,27 @@ module Api
         @current_user.update access_token: nil
         response_data data, "You are logged out", 200
       end
+
+      def edit_details
+        data_uri_parts = params["image"].match(/\Adata:([-\w]+\/[-\w\+\.]+)?;base64,(.*)/m) || []
+        extension = MIME::Types[data_uri_parts[1]].first.preferred_extension
+        user = @current_user
+        file_name = 'profile' + user.id.to_s + SecureRandom.hex + '.' + extension
+
+        File.open(Rails.root.join('public', 'uploads', file_name).to_s, 'wb') do |file|
+          file.write(Base64.decode64(data_uri_parts[2]))
+        end
+        file_path = "#{Rails.root}/public/uploads/#{file_name}"
+        user.image = send_to_amazon(file_path)
+        user.name = params["name"]
+        user.phone = params["phone"]
+        user.address = params["address"]
+        user.save
+        data = Hash.new
+        data[:user] = user
+        File.delete file_path
+        response_data data, "Profile Updated", 200
+      end
     end
   end
 end

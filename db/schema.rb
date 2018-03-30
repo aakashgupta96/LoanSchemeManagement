@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180324074735) do
+ActiveRecord::Schema.define(version: 20180330083319) do
 
   create_table "departments", force: :cascade do |t|
     t.string   "name"
@@ -28,12 +28,6 @@ ActiveRecord::Schema.define(version: 20180324074735) do
   end
 
   add_index "eligibilities", ["scheme_id"], name: "index_eligibilities_on_scheme_id"
-
-  create_table "loan_applications", force: :cascade do |t|
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.string   "name",       default: ""
-  end
 
   create_table "schemes", force: :cascade do |t|
     t.string   "name"
@@ -58,6 +52,9 @@ ActiveRecord::Schema.define(version: 20180324074735) do
     t.string   "reset_password_token", default: ""
     t.string   "access_token"
     t.boolean  "disabled",             default: false
+    t.string   "image"
+    t.string   "address"
+    t.string   "phone"
   end
 
 end
