@@ -13,4 +13,74 @@
  *= require_tree .
  *= require_self
  */
+.new_user{
+	background-color: #b6cee2;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	padding: 50px;
+	width:30% 
+}
+.sign_form{
+	display: flex;
+	/*background-color: #b6cee2;*/
+	align-items: center;
+	justify-content: space-around;
+	/*width:30%;*/
+	/*padding: 30px;*/
+	
+	margin-top: 4%;
+	/*margin-left:25%;*/
+	/*width: 30%*/
+	/*min-height:800px;*/
+}
+.navbar{
+  /*overflow: hidden;*/
+  background-color: #ddd;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.top_img {
+  width: 100%;
+ /* overflow-x: hidden !important;*/
+ margin-top: 1.5%
+}
+footer{
+	background-color: #284177;
+	padding: 10px;
+}
+.write {
+  border: 1px solid white;
+  padding:5px;
+  color: white;
+}
+.writer{
+	text-align: right;
+}
+.connect{
+	color:white;
+}
+.icons{
+	color: white;
+	border:1px solid white;
+	padding:5px;
+}
+ul#footer-menu li {
+  display: inline;
+  padding: 0 10px 5px 5px;
+
+}
+
+ul#footer-menu li a {
+  color: #cfcfcf;
+  font-size: 15px;
+}
+.copyright {
+  background: #262889;
+
+  padding: 1%;
+  box-sizing: border-box;
+}
+.control-label{
+	color:#333e93;
+}
 @import "bootstrap";
