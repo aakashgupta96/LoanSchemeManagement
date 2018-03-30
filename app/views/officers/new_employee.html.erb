@@ -1,0 +1,6 @@
+<%= form_for(User.new, url: url_for(controller: "officers",action: "create_employee")) do |f| %>
+	<%= f.label "Enter Email Address" %>
+	<%= f.email_field :email, required: true %>
+
+	<%= f.submit %>
+<% end %>

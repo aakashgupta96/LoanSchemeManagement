@@ -7,6 +7,7 @@ class DepartmentsController < ApplicationController
 
 	def create
 		@department = Department.new(department_params)
+		@department.officer = User.with_email(@department.officer.email)
 		@department.officer.role = User.roles["officer"]
 		if @department.save
 			@department.officer.send_reset_password_instructions

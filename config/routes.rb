@@ -15,8 +15,14 @@ Rails.application.routes.draw do
 
   #root 'home#loan_app'
 
+  scope :nodal_employees do 
+    get '/dashboard' => "nodal_employees#dashboard", as: "nodal_employees_dashboard"
+  end
+  
   scope :officers do
     get "/dashboard" => "officers#dashboard", as: "officer_dashboard"
+    get "/add_employee" => "officers#new_employee", as: "add_employee"
+    post "/add_employee" => "officers#create_employee"
   end
 
   scope :admins do
