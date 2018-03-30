@@ -1,7 +1,8 @@
-<%= form_for(@ministry, url: url_for(controller: "ministries", action: "create")) do |f| %>
+<div class="add_ministry">
+	<%= form_for(@ministry, url: url_for(controller: "ministries", action: "create")) do |f| %>
 <table>
 	<tr>
-	<td><%= f.label :name, "Minitry Name" %></td>
+	<td><%= f.label :name, "Ministry Name" %></td>
 	<td><%= f.text_field :name, required: true %> </td>
 	</tr>
 	<tr>
@@ -18,3 +19,4 @@
   <p><%= f.submit "Submit" %></p>
   </table>
 <% end %>
+</div>

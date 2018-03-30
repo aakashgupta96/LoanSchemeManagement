@@ -27,23 +27,13 @@
 	/*width:30%;*/
 	/*padding: 30px;*/
 	
-	margin-top: 4%;
+	margin-top: 11%;
 	/*margin-left:25%;*/
 	/*width: 30%*/
 	/*min-height:800px;*/
 }
-.navbar{
-  /*overflow: hidden;*/
-  background-color: #ddd;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-.top_img {
-  width: 100%;
- /* overflow-x: hidden !important;*/
- margin-top: 1.5%
-}
+
+
 footer{
 	background-color: #284177;
 	padding: 10px;
@@ -168,7 +158,6 @@ button {
 .btn-danger{
 	    margin-top: 10px;
 	    margin-right: 10px;
-
 }
 
 
@@ -179,4 +168,20 @@ button {
   padding-bottom: 12px;
       margin-top: 10px;
   box-sizing: border-box;
+}
+.ministry_card{
+	text-align: center;
+	padding: 15px;
+}
+.ministry_list{
+	background-color: #ddd;
+	width:20%;
+	margin: 0px auto;
+}
+.ministry_name:hover{
+	color:red;
+	text-decoration:none;
+}
+.add_ministry{
+	margin: 0px auto;
 }
