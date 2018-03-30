@@ -16,7 +16,7 @@
 <% @messages.each do |message| %>
 	<% if message.body && message.ticket_id == @ticket.id %>
 	<li>		
-		<% user = User.find(message.user_id) %>
+		<% user = User.find_by_id(message.user_id) %>
 		<%= user.email %>
 		<br>
 		<%= message.body %>
@@ -25,10 +25,22 @@
 <% end %>
 </ul>
 
+<% if @user.nodal_employee? && ticket.new_ticket? || ticket.open? %>
+
 <%= form_for [@ticket, Message.new], url: url_for(controller: "messages", action: "create", method: "POST") do |f| %>
     <%= f.text_area :body %>
     <%= f.text_field :user_id, value: @current_user.id, type: "hidden"  %>
     <%= f.submit "Add Reply" %>
+<% end %>
+
+<% elsif @user.officer? %>
+
+<%= form_for [@ticket, Message.new], url: url_for(controller: "messages", action: "create", method: "POST") do |f| %>
+    <%= f.text_area :body %>
+    <%= f.text_field :user_id, value: @current_user.id, type: "hidden"  %>
+    <%= f.submit "Add Reply" %>
+<% end %>
+
 <% end %>
 
 

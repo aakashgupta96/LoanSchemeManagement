@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   before_action do
-    @ticket = Ticket.find(params[:ticket_id])
+    @ticket = Ticket.find_by_id(params[:ticket_id])
   end
 
   def index
