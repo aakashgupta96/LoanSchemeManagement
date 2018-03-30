@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180330083319) do
+ActiveRecord::Schema.define(version: 20180330104213) do
+
+  create_table "department_employees", force: :cascade do |t|
+    t.integer  "user_id",       null: false
+    t.integer  "department_id", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "departments", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "ministry_id"
   end
 
   create_table "eligibilities", force: :cascade do |t|
@@ -28,6 +36,19 @@ ActiveRecord::Schema.define(version: 20180330083319) do
   end
 
   add_index "eligibilities", ["scheme_id"], name: "index_eligibilities_on_scheme_id"
+
+  create_table "loan_applications", force: :cascade do |t|
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "name",       default: ""
+  end
+
+  create_table "ministries", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "schemes", force: :cascade do |t|
     t.string   "name"

@@ -1,0 +1,9 @@
+<fieldset>
+<%= f.label :name, "Department Name" %>
+	<%= f.text_field :name, required: true %> </br>
+	<% f.object.build_officer %>
+	<%= f.fields_for :officer do |builder2| %>
+	  <%= render "shared/officer_fields.html.erb", :f => builder2 %>
+  <% end %>
+</br>
+</fieldset>

@@ -9,7 +9,13 @@ class Permission
         allow :applicants, [:dashboard]
       end
       if user.officer?
-        allow :officers, [:dashboard]
+        allow :officers, [:dashboard, :new_employee, :create_employee]
+      end
+      if user.nodal_employee?
+        allow :nodal_employees, [:dashboard]
+      end
+      if user.scheme_provider?
+        allow :scheme_providers, [:dashboard]
       end
       allow_all if user.admin?
     end

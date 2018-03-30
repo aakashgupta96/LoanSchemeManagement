@@ -1,0 +1,14 @@
+<%= form_for(@ministry, url: url_for(controller: "ministries", action: "create")) do |f| %>
+	<%= f.label :name, "Minitry Name" %>
+	<%= f.text_field :name, required: true %> </br>
+	<%= f.label :description, "Description" %>
+	<%= f.text_field :description, required: true %> </br>
+	
+	<%= f.fields_for :departments do |builder| %>
+		<% builder.object.build_officer %>
+    <%= render "/shared/department_fields", :f => builder %>
+  <% end %>
+	<p><%= link_to_add_fields "Add Department", f, :departments %></p>
+  
+  <p><%= f.submit "Submit" %></p>
+<% end %>
