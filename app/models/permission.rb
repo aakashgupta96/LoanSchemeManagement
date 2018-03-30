@@ -14,7 +14,9 @@ class Permission
       if user.nodal_employee?
         allow :nodal_employees, [:dashboard]
       end
-
+      if user.scheme_provider?
+        allow :scheme_providers, [:dashboard]
+      end
       allow_all if user.admin?
     end
     false

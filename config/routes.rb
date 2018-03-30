@@ -25,11 +25,27 @@ Rails.application.routes.draw do
     post "/add_employee" => "officers#create_employee"
   end
 
+  scope :scheme_providers do 
+    get "/dashboard" => "scheme_providers#dashboard", as: "scheme_provider_dashboard"
+  end
+
   scope :admins do
     get "/dashboard" => "admins#dashboard", as: "admin_dashboard"
   end
 
-  resources :departments
+
+  resources :ministries
+
+  scope :ministries do 
+    get "/:ministry_id/departments/index" => "departments#index", as: "departments"
+    post "/:ministry_id/departments" => "departments#create"
+    get "/:ministry_id/departments/new" => "departments#new", as: "new_department"
+    get "/:ministry_id/departments/:department_id/edit" => "departments#edit", as: "edit_department"
+    get "/:ministry_id/departments/:department_id" => "departments#show", as: "department"
+    patch "/:ministry_id/departments/:department_id" => "departments#update"
+    put "/:ministry_id/departments/:department_id" => "departments#update"
+    delete "/:ministry_id/departments/:department_id" => "departments#destroy"
+  end
 
   namespace :api do
     namespace :v1 do

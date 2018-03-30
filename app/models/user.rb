@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 	has_one :department, dependent: :destroy
-	enum role: {applicant: 0, officer: 1, admin: 2, nodal_employee: 3, back_user: 4}
+	enum role: {applicant: 0, officer: 1, admin: 2, nodal_employee: 3, scheme_provider: 4}
 
 	def self.with_details(user_hash)
 		@user = find_by_email_and_password(user_hash["email"],user_hash["password"])
