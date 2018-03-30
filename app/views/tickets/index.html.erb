@@ -3,27 +3,17 @@
 <ul>
 <%= @tickets.each do |ticket| %>
 
-  <% if ticket.user_id == current_user.id %>
+  
   <li>
+    <%= ticket.description %>
     <% dept = Department.find(ticket.department_id) %>
     <%= link_to dept.name, ticket_messages_path(ticket) %>
+    Status: <%= ticket.status %>
   </li>
-  <% end %>
 
+<% end %>
 </ul>
-	
-<h3>Departments List</h3>
 
-<ol>
-<% @departments.each do |dept| %>
 
-  <li>
-  	<%= dept.name %> 
-    <%= link_to 'Send Message', tickets_path(current_user_id: current_user.id, department_id: dept.id), method: 'post'%>
-  </li>
-  <% end %>
-<% end %>
-</ol>
-<% end %>
 
-<%= link_to "Dashboard", user_dashboard_path %>
+<%= link_to "Dashboard", nodal_employee_dashboard_path %>

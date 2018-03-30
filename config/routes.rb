@@ -15,8 +15,14 @@ Rails.application.routes.draw do
 
   #root 'home#loan_app'
 
+  scope :nodal_employees do 
+    get '/dashboard' => "nodal_employees#dashboard", as: "nodal_employee_dashboard"
+  end
+  
   scope :officers do
     get "/dashboard" => "officers#dashboard", as: "officer_dashboard"
+    get "/add_employee" => "officers#new_employee", as: "add_employee"
+    post "/add_employee" => "officers#create_employee"
   end
 
   scope :admins do
@@ -41,4 +47,9 @@ Rails.application.routes.draw do
   resources :tickets do
     resources :messages
   end
+
+  get "/tickets" => 'tickets#index', as: 'tickets_index'
+  get "/open_change_status" => 'tickets#open_change_status', as: 'open_change_status_ticket'
+  get "/resolved_change_status" => 'tickets#resolved_change_status', as: 'resolved_change_status_ticket'
+  get "/escalated_change_status" => 'tickets#escalated_change_status', as: 'escalated_change_status_ticket'
 end

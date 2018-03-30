@@ -13,6 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20180330090730) do
 
+  create_table "department_employees", force: :cascade do |t|
+    t.integer  "user_id",       null: false
+    t.integer  "department_id", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "departments", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
@@ -59,6 +66,7 @@ ActiveRecord::Schema.define(version: 20180330090730) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "department_id"
+    t.integer  "status"
   end
 
   add_index "tickets", ["department_id"], name: "index_tickets_on_department_id"

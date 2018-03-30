@@ -2,12 +2,24 @@
    <%= link_to 'Show Previous', '?m=all' %>
 <% end %>
 
+
+
+
 <ul>
 <% @messages.each do |message| %>
 	<% if message.body %>
 	<li>
+		<% ticket = Ticket.find(message.ticket_id) %>
+		<% if ticket.new_ticket? %>
+				<%= link_to "Open", open_change_status_ticket_path(ticket) %>
+				<%= link_to "Resolved", resolved_change_status_ticket_path(@ticket) %>
+				<%= link_to "Escalated", escalated_change_status_ticket_path(@ticket) %>
+		<% elsif ticket.open? %>
+				<%= link_to "Resolved", resolved_change_status_ticket_path(@ticket) %>
+				<%= link_to "Escalated", escalated_change_status_ticket_path(@ticket) %>
+		<% end %> 
 		<% user = User.find(message.user_id) %>
-		<%= user.email %><%= message.message_time %>
+		<%= user.email %>
 		<br>
 		<%= message.body %>
 	<% end %>
@@ -15,10 +27,6 @@
 <% end %>
 </ul>
 
-<%= form_for [@ticket, @message] do |f| %>
-    <%= f.text_area :body %>
-    <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-    <%= f.submit "Add Reply" %>
-<% end %>
+
 
 <%= link_to "All Tickets", tickets_path %>
