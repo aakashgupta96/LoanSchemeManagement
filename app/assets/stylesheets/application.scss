@@ -107,3 +107,76 @@ ul#footer-menu li a {
 .switch6-light a { position: absolute; right: 50%; top: 0px; z-index: 4; display: block; width: 50%; height: 100%; padding: 0px; }
 
 @import "bootstrap";
+.navbar1 {
+  overflow: hidden;
+  background-color: #ddd;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.top_img {
+  width: 100%;
+  overflow-x: hidden !important;
+}
+
+.nav_button
+{
+	color: white;
+}
+
+.nav_button:hover
+{
+	text-decoration: none;
+	color: white;
+}
+
+
+.dash {
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #ddd;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 2px 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+#user-details img {;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#li_dash {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-bottom: 12px;
+  box-sizing: border-box;
+}
+
+#li_dash:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-danger{
+	    margin-top: 10px;
+	    margin-right: 10px;
+
+}
+
+
+#li_log {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-bottom: 12px;
+      margin-top: 10px;
+  box-sizing: border-box;
+}
