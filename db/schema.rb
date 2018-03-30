@@ -29,6 +29,12 @@ ActiveRecord::Schema.define(version: 20180324074735) do
 
   add_index "eligibilities", ["scheme_id"], name: "index_eligibilities_on_scheme_id"
 
+  create_table "loan_applications", force: :cascade do |t|
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "name",       default: ""
+  end
+
   create_table "schemes", force: :cascade do |t|
     t.string   "name"
     t.text     "guidelines"

@@ -12,6 +12,10 @@
 <div><%=notice%></div>
 <% end %>
 
+<% unless alert.nil? %>
+<div><%=alert%></div>
+<% end %>
+
 <%= yield %>
 
 </body>
