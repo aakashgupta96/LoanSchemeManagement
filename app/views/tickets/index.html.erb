@@ -1,13 +1,13 @@
 <h3>Tickets</h3>
 
 <ul>
-<%= @tickets.each do |ticket| %>
+<% @tickets.each do |ticket| %>
 
   
   <li>
-    <%= ticket.description %>
+    <%= link_to ticket.description, ticket_messages_path(ticket) %>
     <% dept = Department.find(ticket.department_id) %>
-    <%= link_to dept.name, ticket_messages_path(ticket) %>
+    <%= dept.name %>
     Status: <%= ticket.status %>
   </li>
 
