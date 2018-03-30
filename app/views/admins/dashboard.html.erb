@@ -1,9 +1,32 @@
-<%= link_to "Add a new Ministry", new_ministry_path %>
-<%= link_to "Sign Out", destroy_user_session_path, method: "POST" %>
 
+<div class="navbar1">
+<%= image_tag "logo.png", class: "top_img"%>
+  <!-- <img class="top_img" src="logo.png"> -->
+  <div style="display: flex; padding: 0 20px; box-sizing: border-box; align-items: center; justify-content: space-between; width: 100%;">
+  <%= image_tag "start.png", style: "height: 58px; padding: 12px 0;"%>
+<!--     <img src="../assets/icons/start.png" style="height: 48px; padding: 12px 0;">
+ -->   
+    <div style="display: flex;">
+      <ul style="display: flex; ">
+        <li (click)="openCompanyDialog()" class="btn btn-danger">Add Ministry</li>
+        <li (click)="openUpdateDialog()" class="btn btn-danger">Requests</li>
+         <li (click)="openUpdateDialog()" class="btn btn-danger">Tickets</li>
+        <li (click)="logout()">Logout</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 
+<%= link_to "Add Ministry", new_ministry_path%>
+<%= link_to "Requests", new_ministry_path %>
+<%= link_to "Tickets", new_ministry_path %>
+<%= link_to "Sign Out", destroy_user_session_path, method: "POST" %>
+ -->
 <h2>Ministry List</h2>
 <% @ministries.each do |ministry| %>
 	<div class="ministry_card">
 		<%=link_to ministry.name, ministry_path(ministry)%>
 	</div>
 <% end %>
+
