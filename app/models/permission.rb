@@ -14,9 +14,11 @@ class Permission
       if user.nodal_employee?
         allow :nodal_employees, [:dashboard]
         allow :tickets, [:index, :open_change_status, :resolved_change_status, :escalated_change_status]
-        allow :messages, [:index]
+        allow :messages, [:index, :new, :create]
       end
-
+      if user.scheme_provider?
+        allow :scheme_providers, [:dashboard]
+      end
       allow_all if user.admin?
     end
     false

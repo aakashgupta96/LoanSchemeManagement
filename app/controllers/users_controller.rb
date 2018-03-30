@@ -1,14 +1,18 @@
 class UsersController < ApplicationController
 
 	before_action :set_user, only: [:create_session]
+	before_action :user_enabled?, only: [:create_session]
 	def sign_up
 		@user = User.new
 	end
 
 	def create
 		@user = User.new(user_params)
+		if @user.disabled
+			@user.role = User.roles["scheme_provider"]
+		end
 		if @user.save
-			session["user_id"] = @user.id
+			(session["user_id"] = @user.id) unless @user.disabled
 			return redirect_to after_sign_in_path_for(@user), notice: "Account successfully created!"
 		else
 			return redirect_to sign_in_user_path, notice: "Some error occurred while saving details. Please try again!"
@@ -55,7 +59,15 @@ class UsersController < ApplicationController
 	end
 
 	def user_params
-		 params.require(:user).permit(:email, :password, :name)
+		 params.require(:user).permit(:email, :password, :name, :disabled)
+	end
+
+	def user_enabled?
+		if @user.disabled
+			return redirect_to sign_in_user_path, notice: "Account disabled"
+		else
+			true
+		end
 	end
 
 end

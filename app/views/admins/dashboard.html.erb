@@ -1,2 +1,9 @@
-<%= link_to "Add a new Department", new_department_path %>
+<%= link_to "Add a new Ministry", new_ministry_path %>
 <%= link_to "Sign Out", destroy_user_session_path, method: "POST" %>
+
+<h2>Ministry List</h2>
+<% @ministries.each do |ministry| %>
+	<div class="ministry_card">
+		<%=link_to ministry.name, ministry_path(ministry)%>
+	</div>
+<% end %>

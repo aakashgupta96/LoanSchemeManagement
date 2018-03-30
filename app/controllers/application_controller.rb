@@ -18,7 +18,9 @@ class ApplicationController < ActionController::Base
   		"/officers/dashboard"
     elsif resource.nodal_employee?
       "/nodal_employees/dashboard"
-  	else
+  	elsif resource.scheme_provider?
+      "/scheme_providers/dashboard"
+    else
   		"/admins/dashboard"
   	end
   end
