@@ -22,28 +22,24 @@
   width: 100%;
 }
 
-.navbar1 a {
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.navbar1 a:hover {
-  background: #fff;
-  color: black;
-}
-
 .top_img {
   width: 100%;
   overflow-x: hidden !important;
 }
 
+.nav_button
+{
+	color: white;
+}
+
+.nav_button:hover
+{
+	text-decoration: none;
+	color: white;
+}
 
 
-ul {
+.dash {
   list-style-type: none;
   overflow: hidden;
   background-color: #ddd;
@@ -63,15 +59,15 @@ button {
   object-fit: cover;
 }
 
-li {
+#li_dash {
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 12px;
+  padding-bottom: 12px;
   box-sizing: border-box;
 }
 
-li:hover {
+#li_dash:hover {
   text-decoration: underline;
   cursor: pointer;
 }
@@ -80,4 +76,14 @@ li:hover {
 	    margin-top: 10px;
 	    margin-right: 10px;
 
+}
+
+
+#li_log {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-bottom: 12px;
+      margin-top: 10px;
+  box-sizing: border-box;
 }
