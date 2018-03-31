@@ -1,15 +1,18 @@
-<fieldset>
-	<h3>New Eligibilty</h3>
-	<%= f.label :details, "Enter Eligibilty Description" %>
-	<%= f.text_field :details, required: true %> </br>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">New Eligibilty</h5>
+    <div class="card-text">
+    	<%= f.label :details, "Enter Eligibilty Description" %>
+			<%= f.text_field :details, required: true %> </br>
 
-	<%= f.label :bucket, "Choose Eligibility Type" %>
-	<%= f.select(:bucket, options_for_select(BucketTypes::SELECT))%>
+			<%= f.label :bucket, "Choose Eligibility Type" %>
+			<%= f.select(:bucket, options_for_select(BucketTypes::SELECT))%><br>
 
-	<%= f.label :value, "Enter minimum threshold value" %>
-	<%= f.number_field :value %>
+			<%= f.label :value, "Enter minimum threshold value" %>
+			<%= f.number_field :value %><br>
 
-	<%= f.label :weight, "Importance on scale of 0-100" %>
-	<%= f.number_field :weight %>
-
-</fieldset>
+			<%= f.label :weight, "Importance on scale of 0-100" %>
+			<%= f.number_field :weight %><br>
+		.</div>
+  </div>
+</div>

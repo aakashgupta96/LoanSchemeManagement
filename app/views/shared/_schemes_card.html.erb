@@ -4,6 +4,12 @@
 	    <h5 class="card-title"><%= scheme.name%></h5>
 	    <p class="card-text"><%=scheme.guidelines%></p>
 	    <a href="#" class="btn btn-primary">View Details</a>
+	    <% scheme.loan_requests.first(3).each do |rq|%>
+	    	<div>
+	    		<p><%=rq.user.name%></p>
+	    		<p><%= rq.user.company.name%></p>
+	    	</div>
+	    <% end %> 
 	  </div>
 	</div>
 </div>

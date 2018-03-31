@@ -1,3 +1,4 @@
+<div class="form_box">
 <%= form_for(@scheme,url: url_for(controller: "schemes", action: "create")) do |f| %>
 	
 	<%= f.hidden_field :department_id, value: @department.id %>
@@ -11,7 +12,7 @@
 	<br>
 
 	<%= f.label :ticekt_size, "Ticekt Size" %>
-	<%= f.number_field :ticekt_size %>
+	<%= f.number_field :ticket_size %>
 	<br>
 
 	<%= f.label :interest_rate, "Interest Rate" %>
@@ -21,9 +22,19 @@
 	<%= f.fields_for :eligibilities do |builder| %>
 		<%= render "/shared/eligibility_fields", :f => builder %>
   <% end %>
-
+  
 	<p><%= link_to_add_fields "Add eligibility", f, :eligibilities %></p>
 
 	<%= f.submit %>
 
 <% end %>
+</div>
+
+<style type="text/css">
+	.form_box
+	{
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
+</style>

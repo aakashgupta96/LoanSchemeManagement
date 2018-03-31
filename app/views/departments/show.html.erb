@@ -1,5 +1,8 @@
 <center><h4><%= @department.name%></h4></center>
 
+<% if @department.schemes.size == 0 %>
+	<center style="color: grey;"><h3> No Schemes Added Yet.</h3></center>
+<% end %>
 <% @department.schemes.each do |s| %>
 	<%= render "/shared/schemes_card.html.erb", scheme: s %>
 <% end %>
