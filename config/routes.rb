@@ -57,6 +57,9 @@ Rails.application.routes.draw do
 
       match 'users/edit' => 'users_api#edit_details', via: [:post]
       match 'users/edit' => 'users_api#cors_preflight_check', via: [:options]
+
+      match 'users/add_company' => 'users_api#add_company', via: [:post]
+      match 'users/add_company' => 'users_api#cors_preflight_check', via: [:options]
     end
   end
 
