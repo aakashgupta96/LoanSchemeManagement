@@ -12,4 +12,19 @@ module ApplicationHelper
     id = fields.gsub("\n","").split("id=\"").second.split("\"").first
     link_to(name, "#", class: "add_fields", data: {id: id, fields: fields.gsub("\n","")})
   end
+
+  def status_message(status)
+    if status == "new_ticket"
+      "New Ticket"
+    elsif status == "open"
+      "Opened"
+    elsif status == "resolved"
+      "Resolved"
+    elsif status == "escalated"
+      "Escalated to Officer"
+    else
+      "Unknown"
+    end
+  end
+
 end

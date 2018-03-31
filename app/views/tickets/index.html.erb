@@ -1,29 +1,34 @@
-<h3>Tickets</h3>
-
-<ul>
-<% @tickets.each do |ticket| %>
-
-  <% if @user.officer? %>
-  	<% if ticket.escalated? %>
-  		<li>
-    	<%= link_to ticket.description, ticket_messages_path(ticket) %>
-    	<% dept = Department.find(ticket.department_id) %>
-    	<%= dept.name %>
-    	Status: <%= ticket.status %>
-  	</li>
-  	<% end %>
-  <% else %>
-  	<li>
-    	<%= link_to ticket.description, ticket_messages_path(ticket) %>
-    	<% dept = Department.find(ticket.department_id) %>
-    	<%= dept.name %>
-    	Status: <%= ticket.status %>
-  	</li>
-  <% end %>
-
+<% if @user.officer? %>
+  <%= render "/shared/header_nodal_officer.html.erb" %>
+<% elsif @user.nodal_employee? %>
+  <%= render "/shared/header_nodal_employee.html.erb" %>
+<% elsif @user.applicant? %>
+  <%= render "/shared/header_applicant.html.erb" %>
 <% end %>
-</ul>
 
+<h3><center>Tickets</center></h3>
 
-
-<%= link_to "Dashboard", nodal_employee_dashboard_path %>
+<div class="row">
+  <% @tickets.each do |ticket| %>
+  <% if @user.officer? %>
+    <% if ticket.escalated? %>
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="container">
+            <h4><%=ticket.description%><button type="button" class="btn btn-sm btn-primary"><%=status_message(ticket.status)%><span class="badge"></span></button>
+              </h4>
+            <p><%=link_to status_message(ticket.status), ticket_messages_path(ticket)%></p>
+          </div>
+        </div> 
+      </div>
+    <% end %>
+  <% else %>
+    <li>
+      <%= link_to ticket.description, ticket_messages_path(ticket) %>
+      <% dept = Department.find(ticket.department_id) %>
+      <%= dept.name %>
+      Status: <%= ticket.status %>
+    </li>
+  <% end %>
+<% end %>
+</div>
