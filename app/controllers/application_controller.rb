@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
   delegate :allow_param?, to: :current_permission
   helper_method :allow_param?
 
+  helper_method :current_user
+
   def after_sign_in_path_for(resource)
   	if resource.applicant?
   		"/users/dashboard"

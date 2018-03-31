@@ -1,5 +1,22 @@
+<br><br><br>
+<div class="sign_form">
+
 <%= form_for(User.new,url: url_for(controller: "users", action: "create_session", method: "POST")) do |f| %>
-	<%= f.email_field :email %> </br>
-	<%= f.password_field :password %></br>
-	<%= f.submit "Log In"%>
+	<center><h1 style="color:#333e93">LOGIN</h1></center><br><br>
+	<div class="form-group">
+    	<label class="control-label col-sm-2" for="email"><b>Email: </b></label>
+    	<div class="col-sm-10"><%= f.email_field :email %> </br>
+		</div>
+  	</div>
+  	<div class="form-group">
+    	<label class="control-label col-sm-2" for="pwd"><b>Password: </b></label>
+    	<div class="col-sm-10"> <%= f.password_field :password %></br>
+		</div>
+  </div>
+  <div class="form-group">
+	<label class="control-label col-sm-4" for=""> </label>
+    	<center><div class="col-sm-8"><%= f.submit "Log In",class: "btn btn-primary"%></center>
+</div>
+</div>
 <% end %>
+</div>

@@ -9,7 +9,7 @@ class DepartmentsController < ApplicationController
 	end
 
 	def show
-		
+		@user = current_user
 	end
 
 	def edit
@@ -27,7 +27,7 @@ class DepartmentsController < ApplicationController
 		@department.officer.role = User.roles["officer"]
 		if @department.save
 			@department.officer.send_reset_password_instructions
-			return redirect_to admin_dashboard_path, notice: "Successfully created department!"
+			return redirect_to ministry_path(@ministry), notice: "Successfully created department!"
 		else
 			return redirect_to new_department_path, notice: "Error Occurred while saving!"
 		end	

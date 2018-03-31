@@ -5,8 +5,19 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
+<header class="header">
+<div class="navbar1">
+<%= image_tag "logo.png", class:"top_img" %>
+
+<div style="display: flex; padding: 0 20px; box-sizing: border-box; align-items: center; justify-content: space-between">
+    <%= image_tag "start.png" %>
+</div>
+</div>
+</header>
 
 <% unless notice.nil? %>
 <div><%=notice%></div>
@@ -16,7 +27,46 @@
 <div><%=alert%></div>
 <% end %>
 
+<%=show_nav_header(current_user)%>
+
 <%= yield %>
+<br>
+
+<footer id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<%= image_tag "ministry.png" %>
+				</div>
+				<div class="col-md-3">
+					<%= image_tag "investindia.png" %>
+				</div>
+				<div class="writer col-md-4">
+					<br>
+					<a class="write" href="">Write to us</a>
+				</div>
+				<div class="connect col-md-2">
+					Connect with us<br><br>
+					 <a href="#" class="icons fa fa-twitter fa-lg"></a>
+    				<a href="#" class="icons fa fa-facebook-f fa-lg"></a>
+				</div>
+			</div>
+</div>
+<br>
+<div class="row copyright">
+	<div class="container">
+	<ul id="footer-menu">
+      <li><a href="#">Terms of Use</a></li>
+      <li><a href="#">Disclaimer</a></li>
+      <li><a href="#">FAQs</a></li>
+      <li><a href="#">Tenders</a></li>
+      <li class="pull-right" style="color: rgba(255,255,255,0.4);">
+        © 2018 Startup India Hub. All rights reserved.
+      </li>
+    </ul>
+	</div>
+</div>
+</footer>
 
 </body>
 </html>

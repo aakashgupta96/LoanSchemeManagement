@@ -1,0 +1,18 @@
+
+<div class="navbar1">
+<%= image_tag "logo.png", class: "top_img"%>
+
+  <div style="display: flex; padding: 0 20px; box-sizing: border-box; align-items: center; justify-content: space-between; width: 100%;">
+  <%= image_tag "start.png", style: "height: 58px; "%>
+  
+    <div style="display: flex;">
+      <ul style="display: flex; " class="dash">
+        <li class="btn btn-danger" id="li_dash"><%= link_to "Dashboard", admin_dashboard_path, class: "nav_button"%></li>
+        <li class="btn btn-danger" id="li_dash"><%= link_to "Add Ministry", new_ministry_path, class: "nav_button"%></li>
+        <li class="btn btn-danger" id="li_dash"><%= link_to "Requests", authorization_requests_path, class: "nav_button" %></li>
+        <li id="li_log"><%= link_to "Sign Out", destroy_user_session_path, method: "POST" %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<br><br>
