@@ -76,6 +76,29 @@ module Api
         data[:company] = company
         response_data data, "Company Added", 200
       end
+
+      def load_data
+        data = Hash.new
+        data[:departments] = Department.all
+        data[:ministries] = Ministry.all
+        data[:schemes] = Scheme.all
+        response_data data, "Data", 200
+      end
+
+      def ask_query
+        ticket = Ticket.new
+        ticket.description = params[:description]
+        ticket.user = @current_user
+        ticket.department_id = params[:department_id]
+        ticket.save
+        data = Hash.new
+        data[:ticket] = ticket
+        response_data data, "Data", 200
+      end
+
+      def apply_for_loan
+
+      end
     end
   end
 end
