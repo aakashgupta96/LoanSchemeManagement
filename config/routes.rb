@@ -71,6 +71,15 @@ Rails.application.routes.draw do
 
       match 'users/add_company' => 'users_api#add_company', via: [:post]
       match 'users/add_company' => 'users_api#cors_preflight_check', via: [:options]
+
+      match 'users/load_data' => 'users_api#load_data', via: [:get]
+      match 'users/load_data' => 'users_api#cors_preflight_check', via: [:options]
+
+      match 'users/ask_query' => 'users_api#ask_query', via: [:post]
+      match 'users/ask_query' => 'users_api#cors_preflight_check', via: [:options]
+
+      match 'users/apply_for_loan' => 'users_api#apply_for_loan', via: [:post]
+      match 'users/apply_for_loan' => 'users_api#cors_preflight_check', via: [:options]
     end
   end
 

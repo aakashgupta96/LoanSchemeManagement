@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180331065351) do
+ActiveRecord::Schema.define(version: 20180331075852) do
 
   create_table "companies", force: :cascade do |t|
     t.string  "name"
@@ -57,6 +57,15 @@ ActiveRecord::Schema.define(version: 20180331065351) do
   end
 
   add_index "eligibilities", ["scheme_id"], name: "index_eligibilities_on_scheme_id"
+
+  create_table "loan_requests", force: :cascade do |t|
+    t.integer "user_id"
+    t.float   "score"
+    t.integer "scheme_id"
+  end
+
+  add_index "loan_requests", ["scheme_id"], name: "index_loan_requests_on_scheme_id"
+  add_index "loan_requests", ["user_id"], name: "index_loan_requests_on_user_id"
 
   create_table "messages", force: :cascade do |t|
     t.text     "body"

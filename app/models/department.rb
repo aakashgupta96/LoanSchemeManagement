@@ -8,5 +8,8 @@ class Department < ActiveRecord::Base
 	has_many :tickets, dependent: :destroy
 	
 	accepts_nested_attributes_for :officer, allow_destroy: true
-	
+
+	def as_json(options = {})
+		DepartmentSerializer.new(self).as_json(root: false)
+	end
 end
