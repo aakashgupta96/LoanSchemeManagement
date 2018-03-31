@@ -8,4 +8,5 @@ namespace :escalate do
       end
     end
   end
+  # 30 3 * * * /bin/bash -l -c 'cd /home/ubuntu/tool/ && RAILS_ENV=production rake escalate:daily --silent'
 end
