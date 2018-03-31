@@ -4,7 +4,8 @@ class TicketsController < ApplicationController
  	def index
     @user = current_user
   	@users = User.all
-  	@department = Department.find_by_user_id(current_user.id)
+  	# @department = Department.find_by_user_id(current_user.id)
+    @department = current_user.works_for
     # @tickets = Ticket.find_by_department_id(@department.id)
     @tickets = @department.tickets
   end
