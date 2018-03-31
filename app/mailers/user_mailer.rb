@@ -9,4 +9,9 @@ class UserMailer < ApplicationMailer
 		mail(to: @user.email, subject: "Reset Account Password")
 	end
 
+	def doubt_resolved(user)
+		@user = user
+		msil(to: @user.email, subject: "Your doubt has been resolved by Nodal Officer")
+	end
+
 end

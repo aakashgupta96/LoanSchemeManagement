@@ -188,7 +188,21 @@ button {
   text-align: center;
   padding-top: 5px;
   display: flex;
- align-items: center;
+  align-items: center;
   width:30%;
   margin:0px auto;
+}
+
+#Tdesc {
+  color: #2f3193;
+  text-transform: capitalize;
+  padding-top: 2%;
+}
+
+.card {
+  vertical-align: center;
+  padding-left: 5%;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding-right: 5%;
 }
