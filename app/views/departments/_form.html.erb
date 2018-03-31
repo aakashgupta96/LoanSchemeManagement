@@ -1,7 +1,10 @@
-<%= f.label :name, "Department Name" %>
+<center><h1 style="color:#333e93">ADD DEPARTMENT</h1></center>
+<div class="add_dept">
+<%= f.label :name, "Department Names" %>
 	<%= f.text_field :name, required: true %> </br>
 	<%= f.fields_for :officer do |builder| %>
       <%= builder.label :email, "Enter Officer Email ID" %>
       <%= builder.email_field :email, required: true %>
   <% end %>
 </br>
+</div>

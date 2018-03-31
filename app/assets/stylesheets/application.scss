@@ -13,6 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+ body
+ {
+ 	padding-top: 100px;
+ }
 .new_user{
 	background-color: #b6cee2;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -27,7 +32,7 @@
 	/*width:30%;*/
 	/*padding: 30px;*/
 	
-	margin-top: 11%;
+	margin: 30px;
 	/*margin-left:25%;*/
 	/*width: 30%*/
 	/*min-height:800px;*/
@@ -73,28 +78,6 @@ ul#footer-menu li a {
 .control-label{
 	color:#333e93;
 }
-.switch6 {  max-width: 10em;  margin: 0 auto; }
-.switch6-light > span, .switch-toggle > span {  color: #000000; }
-.switch6-light span span, .switch6-light label, .switch-toggle span span, .switch-toggle label {  color: #2b2b2b; }
-
-.switch-toggle a, .switch6-light span span { display: none; }
-
-.switch6-light { display: block; height: 20px; position: relative; overflow: visible; padding: 0px; margin:0px; }
-.switch6-light * { box-sizing: border-box; }
-.switch6-light a { display: block; transition: all 0.3s ease-out 0s; }
-
-.switch6-light label, 
-.switch6-light > span { line-height: 20px; vertical-align: middle;}
-
-.switch6-light label {font-weight: 700; margin-bottom: px; max-width: 100%;}
-
-.switch6-light input:focus ~ a, .switch6-light input:focus + label { outline: 1px dotted rgb(136, 136, 136); }
-.switch6-light input { position: absolute; opacity: 0; z-index: 5; }
-.switch6-light input:checked ~ a { right: 0%; }
-.switch6-light > span { position: absolute; left: -100px; width: 100%; margin: 0px; padding-right: 100px; text-align: left; }
-.switch6-light > span span { position: absolute; top: 0px; left: 0px; z-index: 5; display: block; width: 50%; margin-left: 100px; text-align: center; }
-.switch6-light > span span:last-child { left: 50%; }
-.switch6-light a { position: absolute; right: 50%; top: 0px; z-index: 4; display: block; width: 50%; height: 100%; padding: 0px; }
 
 @import "bootstrap";
 .navbar1 {
@@ -102,6 +85,7 @@ ul#footer-menu li a {
   background-color: #ddd;
   position: fixed;
   top: 0;
+  z-index: 10;
   width: 100%;
 }
 
@@ -184,4 +168,18 @@ button {
 }
 .add_ministry{
 	margin: 0px auto;
+}
+.department_list{
+	background-color: #ddd;
+	width:60%;
+	margin: 0px auto;
+	padding:35px;
+}
+.department_list a:hover{
+	color: red;
+	text-decoration:none;
+}
+
+.add_dept{
+	background-color: #ddd;
 }
