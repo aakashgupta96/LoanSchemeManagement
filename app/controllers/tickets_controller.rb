@@ -5,7 +5,11 @@ class TicketsController < ApplicationController
     @user = current_user
   	@users = User.all
   	# @department = Department.find_by_user_id(current_user.id)
-    @department = current_user.works_for
+    if current_user.nodal_employee?
+      @department = current_user.works_for
+    else
+      @department = Department.find_by_user_id(current_user.id)
+    end
     # @tickets = Ticket.find_by_department_id(@department.id)
     @tickets = @department.tickets
   end
