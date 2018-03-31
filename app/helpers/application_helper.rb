@@ -30,15 +30,15 @@ module ApplicationHelper
   def show_nav_header(user)
     return if user.nil?
     if user.admin?
-      render "/shared/header_admin.html.erb"
+      render "/shared/header_admin.html.erb", user: user
     elsif user.officer?
-      render "/shared/header_nodal_officer.html.erb"
+      render "/shared/header_nodal_officer.html.erb", user: user
     elsif user.scheme_provider?
-      render "/shared/header_scheme_provider.html.erb"
+      render "/shared/header_scheme_provider.html.erb", user: user
     elsif user.nodal_employee?
-      render "/shared/header_nodal_employee.html.erb"
+      render "/shared/header_nodal_employee.html.erb", user: user
     elsif user.applicant?
-      render "/shared/header_admin.html.erb"
+      render "/shared/header_admin.html.erb", user: user
     end
   end
 

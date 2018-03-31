@@ -1,15 +1,16 @@
-class SchemeProvidersController < ApplicationController
+class SchemesController < ApplicationController
 
   before_action :set_department
   before_action :set_scheme, only: [:show, :edit, :update, :destroy]
 
   def create
+    byebug
     @scheme = Scheme.new(scheme_params)
     @scheme.officer = User.with_email(@department.officer.email)
     @scheme.department = @department
     @scheme.officer.role = User.roles["officer"]
     if @scheme.save
-      return redirect_to admin_dashboard_path, notice: "Successfully created scheme"
+      return redirect_to department_path(@department.ministry,@department), notice: "Successfully created scheme"
     else
       return redirect_to new_department_path, notice: "Error Occurred while saving!"
     end
@@ -21,11 +22,12 @@ class SchemeProvidersController < ApplicationController
 
   def new
     @scheme = Scheme.new
+    3.times {@scheme.eligibilities.build}
   end
 
   private
   def scheme_params
-    params.require(:scheme).permit(:name, :guidelines, :ticket_size, :department_id, officer_attributes: [:email])
+    params.require(:scheme).permit(:name, :guidelines, :ticket_size, :department_id, eligibilities_attributes: [:details, :bucket, :value])
   end
 
   def set_department

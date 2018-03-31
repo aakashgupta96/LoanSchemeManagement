@@ -8,7 +8,7 @@
     <div style="display: flex;">
       <ul style="display: flex; " class="dash">
         <li class="btn btn-danger" id="li_dash"><%= link_to "Dashboard", officer_dashboard_path, class: "nav_button"%></li>
-        <li class="btn btn-danger" id="li_dash"><%= link_to "Add Scheme", "#", class: "nav_button"%></li>
+        <li class="btn btn-danger" id="li_dash"><%= link_to "Add Scheme", new_scheme_path(user.department.id), class: "nav_button"%></li>
         <li class="btn btn-danger" id="li_dash"><%= link_to "Add Employee", add_employee_path, class: "nav_button"%></li>
         <li class="btn btn-danger" id="li_dash"><%= link_to "Tickets", tickets_path , class: "nav_button" %></li>
         <li id="li_log"><%= link_to "Sign Out", destroy_user_session_path, method: "POST" %></li>

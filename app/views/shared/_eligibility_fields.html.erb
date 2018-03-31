@@ -1,0 +1,13 @@
+<fieldset>
+	<h3>New Eligibilty</h3>
+	<%= f.label :details, "Enter Eligibilty Description" %>
+	<%= f.text_field :details, required: true %> </br>
+
+	<%= f.label :bucket, "Choose Eligibility Type" %>
+	<%# byebug %>
+	<%= f.select(:bucket, options_for_select(BucketTypes::SELECT))%>
+
+	<%= f.label :value, "Enter minimum threshold value" %>
+	<%= f.number_field :value %>
+
+</fieldset>

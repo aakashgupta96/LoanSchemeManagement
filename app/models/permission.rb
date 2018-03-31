@@ -13,6 +13,7 @@ class Permission
         allow :tickets, [:index, :open_change_status, :resolved_change_status, :escalated_change_status]
         allow :messages, [:index, :new, :create]
         allow :departments, [:show]
+        allow :schemes, [:create,:update,:new]
       end
       if user.nodal_employee?
         allow :nodal_employees, [:dashboard]
@@ -23,6 +24,7 @@ class Permission
         allow :ministries, [:show]
         allow :departments, [:show]
         allow :scheme_providers, [:dashboard]
+        allow :schemes, [:create,:update,:new]
       end
       allow_all if user.admin?
     end
