@@ -1,1 +1,19 @@
-<%= render "/shared/header_scheme_provider.html.erb" %>
+
+<center><h2 style="color:#333e93; font-size: 3em;"><b>MINISTRY LIST</b></h2></center>
+<br>
+
+<div class="row">
+<% @ministries.each do |ministry| %>
+	<!--Card-->
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%=link_to ministry.name, ministry_path(ministry), class: "ministry_name"%></h5>
+        <p class="card-text"><%=ministry.description%></p>
+        <%= link_to "Show Details", ministry_path(ministry), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+

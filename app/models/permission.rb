@@ -20,6 +20,7 @@ class Permission
       end
       if user.scheme_provider?
         allow :ministries, [:show]
+        allow :departments, [:show]
         allow :scheme_providers, [:dashboard]
       end
       allow_all if user.admin?

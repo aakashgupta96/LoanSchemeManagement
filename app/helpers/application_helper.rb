@@ -27,4 +27,19 @@ module ApplicationHelper
     end
   end
 
+  def show_nav_header(user)
+    return if user.nil?
+    if user.admin?
+      render "/shared/header_admin.html.erb"
+    elsif user.officer?
+      render "/shared/header_nodal_officer.html.erb"
+    elsif user.scheme_provider?
+      render "/shared/header_scheme_provider.html.erb"
+    elsif user.nodal_employee?
+      render "/shared/header_nodal_employee.html.erb"
+    elsif user.applicant?
+      render "/shared/header_admin.html.erb"
+    end
+  end
+
 end
