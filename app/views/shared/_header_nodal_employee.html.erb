@@ -6,8 +6,8 @@
   
     <div style="display: flex;">
       <ul style="display: flex; " class="dash">
-        <li class="btn btn-danger" id="li_dash"><%= link_to "Dashboard", nodal_employee_dashboard_path, class: "nav_button"%></li>
-        <li class="btn btn-danger" id="li_dash"><%= link_to "Tickets", tickets_path , class: "nav_button" %></li>
+        <li class="btn btn-danger btn-margin" id="li_dash"><%= link_to "Dashboard", nodal_employee_dashboard_path, class: "nav_button"%></li>
+        <li class="btn btn-danger btn-margin" id="li_dash"><%= link_to "Tickets", tickets_path , class: "nav_button" %></li>
         <li id="li_log"><%= link_to "Sign Out", destroy_user_session_path, method: "POST" %></li>
       </ul>
     </div>
