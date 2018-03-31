@@ -15,6 +15,9 @@ class MessagesController < ApplicationController
   def create
     @message = @ticket.messages.new(message_params)
     if @message.save
+      if @message.user.applicant? && @message.ticket.status.escalated?
+        @message.user.doubt_resolved
+      end
       redirect_to ticket_messages_path
     else
     	redirect_to tickets_index_path

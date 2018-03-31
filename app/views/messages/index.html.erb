@@ -1,15 +1,13 @@
-<% if @over_ten %>
-   <%= link_to 'Show Previous', '?m=all' %>
-<% end %>
 
+<div class="container" align="center">
 <% ticket = @ticket %>
 		<% if ticket.new_ticket? %>
-				<%= link_to "Open", open_change_status_ticket_path(@ticket.id), method: :post %>
-				<%= link_to "Resolved", resolved_change_status_ticket_path(@ticket),method: :post %>
-				<%= link_to "Escalated", escalated_change_status_ticket_path(@ticket.id),method: :post %>
+				<%= link_to "Open", open_change_status_ticket_path(@ticket.id), method: :post, class: "btn btn-primary" %>
+				<%= link_to "Resolved", resolved_change_status_ticket_path(@ticket),method: :post, class: "btn btn-success" %>
+				<%= link_to "Escalated", escalated_change_status_ticket_path(@ticket.id),method: :post, class: "btn btn-danger"%>
 		<% elsif ticket.open? %>
-				<%= link_to "Resolved", resolved_change_status_ticket_path(@ticket.id),method: :post %>
-				<%= link_to "Escalated", escalated_change_status_ticket_path(@ticket.id),method: :post %>
+				<%= link_to "Resolved", resolved_change_status_ticket_path(@ticket.id),method: :post, class: "btn btn-primary" %>
+				<%= link_to "Escalated", escalated_change_status_ticket_path(@ticket.id),method: :post, class: "btn btn-danger" %>
 		<% end %> 
 
 <ul>
@@ -17,7 +15,7 @@
 	<% if message.body && message.ticket_id == @ticket.id %>
 	<li>		
 		<% user = User.find_by_id(message.user_id) %>
-		<%= user.email %>
+		<strong><%= user.email %></strong>
 		<br>
 		<%= message.body %>
 	<% end %>
@@ -43,6 +41,4 @@
 
 <% end %>
 
-
-
-<%= link_to "All Tickets", tickets_path %>
+</div>
