@@ -2,9 +2,11 @@ class TicketsController < ApplicationController
  
  	# before_action :set_ticket, only: [:change_stauts]
  	def index
+    @user = current_user
   	@users = User.all
-  	@tickets = Ticket.all
-  	@departments = Department.all
+  	@department = Department.find_by_user_id(current_user.id)
+    # @tickets = Ticket.find_by_department_id(@department.id)
+    @tickets = @department.tickets
   end
  
   def open_change_status
