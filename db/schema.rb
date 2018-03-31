@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180330185910) do
+ActiveRecord::Schema.define(version: 20180331065351) do
 
   create_table "companies", force: :cascade do |t|
     t.string  "name"
@@ -51,6 +51,9 @@ ActiveRecord::Schema.define(version: 20180330185910) do
     t.integer  "scheme_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "bucket"
+    t.integer  "value"
+    t.float    "weight"
   end
 
   add_index "eligibilities", ["scheme_id"], name: "index_eligibilities_on_scheme_id"
@@ -82,6 +85,7 @@ ActiveRecord::Schema.define(version: 20180330185910) do
     t.integer  "department_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "user_id"
   end
 
   add_index "schemes", ["department_id"], name: "index_schemes_on_department_id"

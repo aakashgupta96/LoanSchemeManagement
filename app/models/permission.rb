@@ -12,6 +12,7 @@ class Permission
         allow :officers, [:dashboard, :new_employee, :create_employee]
         allow :tickets, [:index, :open_change_status, :resolved_change_status, :escalated_change_status]
         allow :messages, [:index, :new, :create]
+        allow :departments, [:show]
       end
       if user.nodal_employee?
         allow :nodal_employees, [:dashboard]

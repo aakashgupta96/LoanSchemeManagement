@@ -47,6 +47,17 @@ Rails.application.routes.draw do
     delete "/:ministry_id/departments/:department_id" => "departments#destroy"
   end
 
+  scope :departments do
+    get "/:department_id/schemes/index" => "schemes#index", as: "schemes"
+    post "/:department_id/schemes" => "schemes#create"
+    get "/:department_id/schemes/new" => "schemes#new", as: "new_scheme"
+    get "/:department_id/schemes/:scheme_id/edit" => "schemes#edit", as: "edit_scheme"
+    get "/:department_id/schemes/:scheme_id" => "schemes#show", as: "scheme"
+    patch "/:department_id/schemes/:scheme_id" => "schemes#update"
+    put "/:department_id/schemes/:scheme_id" => "schemes#update"
+    delete "/:department_id/schemes/:scheme_id" => "schemes#destroy"
+  end
+
   namespace :api do
     namespace :v1 do
       match '/users/login' => 'users_api#login', via: [:post]
