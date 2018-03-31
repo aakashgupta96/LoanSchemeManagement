@@ -1,0 +1,48 @@
+<% if @over_ten %>
+   <%= link_to 'Show Previous', '?m=all' %>
+<% end %>
+
+<% ticket = @ticket %>
+		<% if ticket.new_ticket? %>
+				<%= link_to "Open", open_change_status_ticket_path(@ticket.id), method: :post %>
+				<%= link_to "Resolved", resolved_change_status_ticket_path(@ticket),method: :post %>
+				<%= link_to "Escalated", escalated_change_status_ticket_path(@ticket.id),method: :post %>
+		<% elsif ticket.open? %>
+				<%= link_to "Resolved", resolved_change_status_ticket_path(@ticket.id),method: :post %>
+				<%= link_to "Escalated", escalated_change_status_ticket_path(@ticket.id),method: :post %>
+		<% end %> 
+
+<ul>
+<% @messages.each do |message| %>
+	<% if message.body && message.ticket_id == @ticket.id %>
+	<li>		
+		<% user = User.find_by_id(message.user_id) %>
+		<%= user.email %>
+		<br>
+		<%= message.body %>
+	<% end %>
+</li>
+<% end %>
+</ul>
+
+<% if @user.nodal_employee? && ticket.new_ticket? || ticket.open? %>
+
+<%= form_for [@ticket, Message.new], url: url_for(controller: "messages", action: "create", method: "POST") do |f| %>
+    <%= f.text_area :body %>
+    <%= f.text_field :user_id, value: @current_user.id, type: "hidden"  %>
+    <%= f.submit "Add Reply" %>
+<% end %>
+
+<% elsif @user.officer? %>
+
+<%= form_for [@ticket, Message.new], url: url_for(controller: "messages", action: "create", method: "POST") do |f| %>
+    <%= f.text_area :body %>
+    <%= f.text_field :user_id, value: @current_user.id, type: "hidden"  %>
+    <%= f.submit "Add Reply" %>
+<% end %>
+
+<% end %>
+
+
+
+<%= link_to "All Tickets", tickets_path %>

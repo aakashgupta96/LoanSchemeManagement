@@ -1,0 +1,29 @@
+<h3>Tickets</h3>
+
+<ul>
+<% @tickets.each do |ticket| %>
+
+  <% if @user.officer? %>
+  	<% if ticket.escalated? %>
+  		<li>
+    	<%= link_to ticket.description, ticket_messages_path(ticket) %>
+    	<% dept = Department.find(ticket.department_id) %>
+    	<%= dept.name %>
+    	Status: <%= ticket.status %>
+  	</li>
+  	<% end %>
+  <% else %>
+  	<li>
+    	<%= link_to ticket.description, ticket_messages_path(ticket) %>
+    	<% dept = Department.find(ticket.department_id) %>
+    	<%= dept.name %>
+    	Status: <%= ticket.status %>
+  	</li>
+  <% end %>
+
+<% end %>
+</ul>
+
+
+
+<%= link_to "Dashboard", nodal_employee_dashboard_path %>
