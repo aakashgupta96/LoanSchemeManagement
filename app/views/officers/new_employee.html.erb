@@ -1,8 +1,15 @@
 <%= render "/shared/header_nodal_officer.html.erb" %>
-
+<div class="user_email">
 <%= form_for(User.new, url: url_for(controller: "officers",action: "create_employee")) do |f| %>
-	<%= f.label "Enter Email Address" %>
+	<b><%= f.label "Enter Email Address" %></b>
 	<%= f.email_field :email, required: true %>
-
-	<%= f.submit %>
+<br><br>
+	<%= f.submit class:"btn btn-primary" %>
 <% end %>
+</div>
+<style type="text/css">
+	.user_email{
+		min-height: 340px;
+
+	}
+</style>
