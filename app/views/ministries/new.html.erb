@@ -1,23 +1,31 @@
 
 <div class="add_ministry">
 	<%= form_for(@ministry, url: url_for(controller: "ministries", action: "create")) do |f| %>
-<table>
-	<tr>
-	<td><%= f.label :name, "Ministry Name" %></td>
-	<td><%= f.text_field :name, required: true %> </td>
-	</tr>
-	<tr>
-	<td><%= f.label :description, "Description" %></td>
-	<td><%= f.text_field :description, required: true %> </td>
-	</tr>
-	
+<div class="row">
+	<div class="control-label col-md-5">
+<b><%= f.label :name, "Ministry Name" %></b>
+</div>
+<div class="col-md-7">
+<%= f.text_field :name, required: true %>
+</div>
+</div><br>
+<div class="row">
+	<div class="control-label col-md-5">
+<b><%= f.label :description, "Description" %></b>
+</div>
+<div class="col-md-7">
+<%= f.text_field :description, required: true %> 
+</div>
+</div><br>
+
 	<%= f.fields_for :departments do |builder| %>
 		<% builder.object.build_officer %>
     <%= render "/shared/department_fields", :f => builder %>
   <% end %>
-	<p><%= link_to_add_fields "Add Department", f, :departments %></p>
   
-  <p><%= f.submit "Submit" %></p>
-  </table>
+	<%= link_to_add_fields "Add Department", f, :departments %>
+  
+  <%= f.submit "Submit", class:"btn btn-primary" %>
+
 <% end %>
 </div>

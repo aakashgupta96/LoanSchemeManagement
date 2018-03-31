@@ -1,9 +1,36 @@
-<fieldset>
-<%= f.label :name, "Department Name" %>
-	<%= f.text_field :name, required: true %> </br>
+<div class="card" >
+  <div class="card-body">
+	<div class="row">
+		<div class="control-label  col-md-5">
+		<!-- <a data-toggle="collapse" href="#collapsedept"  aria-expanded="true" aria-controls="collapsedept">Department</a>
+		<div class="collapse" id="collapsedept">
+  <div class="card card-block"> -->
+<b><%= f.label :name, "Department Name" %></b>
+</div>
+<div class="col-md-7">
+	<%= f.text_field :name, required: true %>
+	</div>
+	</div> </br>
 	<% f.object.build_officer %>
 	<%= f.fields_for :officer do |builder2| %>
 	  <%= render "shared/officer_fields.html.erb", :f => builder2 %>
   <% end %>
+  <!-- <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Show More...
+  </a> -->
+ <!--  <div class="collapse" id="collapseExample">
+  <div class="card card-block">
+    Some Details...will be shown here....
+  </div>
+</div> -->
 </br>
-</fieldset>
+</div>
+</div>
+<!-- /div>
+</div> -->
+<style>
+.card
+{
+	margin-bottom:15px;
+}
+</style>
