@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180331075852) do
+ActiveRecord::Schema.define(version: 20180331090102) do
 
   create_table "companies", force: :cascade do |t|
     t.string  "name"
@@ -88,7 +88,6 @@ ActiveRecord::Schema.define(version: 20180331075852) do
   create_table "schemes", force: :cascade do |t|
     t.string   "name"
     t.text     "guidelines"
-    t.string   "collateral"
     t.integer  "ticket_size"
     t.float    "interest_rate"
     t.integer  "department_id"

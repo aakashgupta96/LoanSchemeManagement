@@ -1,12 +1,21 @@
 <%= form_for(@scheme,url: url_for(controller: "schemes", action: "create")) do |f| %>
 	
 	<%= f.hidden_field :department_id, value: @department.id %>
+	<%#= f.hidden_field :department_id, value: @department.id %>
 	<%= f.label :name, "Name of Scheme" %>
 	<%= f.text_field :name, required: true %>
 	<br>
 
 	<%= f.label :guidelines, "Guidelines for scheme" %>
 	<%= f.text_field :guidelines %>
+	<br>
+
+	<%= f.label :ticekt_size, "Ticekt Size" %>
+	<%= f.number_field :ticekt_size %>
+	<br>
+
+	<%= f.label :interest_rate, "Interest Rate" %>
+	<%= f.number_field :interest_rate %>
 	<br>
 
 	<%= f.fields_for :eligibilities do |builder| %>

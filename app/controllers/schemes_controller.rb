@@ -26,7 +26,7 @@ class SchemesController < ApplicationController
 
   private
   def scheme_params
-    params.require(:scheme).permit(:name, :guidelines, :ticket_size, :department_id, eligibilities_attributes: [:details, :bucket, :value])
+    params.require(:scheme).permit(:name, :guidelines, :ticket_size, :department_id, :interest_rate, :ticket_size, eligibilities_attributes: [:details, :bucket, :value])
   end
 
   def set_department

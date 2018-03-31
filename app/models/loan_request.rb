@@ -5,4 +5,5 @@ class LoanRequest < ActiveRecord::Base
   def calculate_score
     76.37
   end
+  
 end
