@@ -10,7 +10,6 @@ class AdminsController < ApplicationController
 
 	def authorize_scheme_provider
 		@employee = User.find_by_id(params[:user_id])
-		byebug
 		@employee.update(disabled: false)
 		return redirect_to authorization_requests_path, notice: "Succesfully Granted Permission"
 	end

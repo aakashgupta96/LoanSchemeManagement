@@ -1,0 +1,10 @@
+<div class="col-sm-12">
+  <div class="card">
+    <div class="container">
+      <h4><%=ticket.description%><button type="button" class="btn btn-sm btn-primary"><%=status_message(ticket.status)%><span class="badge"></span></button>
+        </h4>
+      <p><%=link_to status_message(ticket.status), ticket_messages_path(ticket)%></p>
+    </div>
+  </div> 
+</div>
+  

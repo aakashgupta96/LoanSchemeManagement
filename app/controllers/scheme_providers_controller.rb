@@ -3,7 +3,7 @@ class SchemeProvidersController < ApplicationController
 	before_action :check_status
 
 	def dashboard
-
+		@ministries = Ministry.all
 	end
 
 	private
