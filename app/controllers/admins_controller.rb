@@ -1,7 +1,7 @@
 class AdminsController < ApplicationController
 	
 	def dashboard
-		@ministries = Ministry.all
+		@ministries = Ministry.all.order(created_at: :desc)
 	end
 
 	def authorization_requests

@@ -1,3 +1,5 @@
+<center><h4><%= @department.name%></h4></center>
+
 <% @department.schemes.each do |s| %>
 	<%= render "/shared/schemes_card.html.erb", scheme: s %>
 <% end %>

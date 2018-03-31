@@ -1,1 +1,7 @@
-<h1>Schemes of corresponsing department will be displayed</h1>
+<center><h4><%= current_user.department.name%></h4></center>
+
+<div class="row">
+<% @schemes.each do |s| %>
+	<%= render "/shared/schemes_card.html.erb", scheme: s %>
+<% end %>
+</div>

@@ -1,7 +1,7 @@
 class OfficersController < ApplicationController
 
 	def dashboard
-		
+		@schemes = current_user.department.schemes
 	end
 
 	def new_employee

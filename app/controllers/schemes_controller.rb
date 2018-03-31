@@ -4,7 +4,6 @@ class SchemesController < ApplicationController
   before_action :set_scheme, only: [:show, :edit, :update, :destroy]
 
   def create
-    byebug
     @scheme = Scheme.new(scheme_params)
     @scheme.officer = User.with_email(@department.officer.email)
     @scheme.department = @department
