@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180330104213) do
+ActiveRecord::Schema.define(version: 20180330185910) do
+
+  create_table "companies", force: :cascade do |t|
+    t.string  "name"
+    t.integer "user_id"
+    t.string  "incorporation_date"
+    t.string  "incorporation_number"
+    t.string  "company_type"
+    t.string  "description"
+    t.string  "team_strength"
+    t.string  "location"
+    t.string  "growth_rate"
+    t.string  "pan"
+    t.string  "contact_number"
+    t.string  "website"
+    t.string  "net_worth"
+    t.string  "image"
+    t.string  "profits"
+  end
 
   create_table "department_employees", force: :cascade do |t|
     t.integer  "user_id",       null: false
@@ -90,6 +108,9 @@ ActiveRecord::Schema.define(version: 20180330104213) do
     t.string   "reset_password_token", default: ""
     t.string   "access_token"
     t.boolean  "disabled",             default: false
+    t.string   "image"
+    t.string   "address"
+    t.string   "phone"
   end
 
 end
