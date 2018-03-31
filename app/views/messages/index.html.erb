@@ -1,7 +1,5 @@
-<% if @over_ten %>
-   <%= link_to 'Show Previous', '?m=all' %>
-<% end %>
 
+<div class="container" align="center">
 <% ticket = @ticket %>
 		<% if ticket.new_ticket? %>
 				<%= link_to "Open", open_change_status_ticket_path(@ticket.id), method: :post %>
@@ -17,7 +15,7 @@
 	<% if message.body && message.ticket_id == @ticket.id %>
 	<li>		
 		<% user = User.find_by_id(message.user_id) %>
-		<%= user.email %>
+		<strong><%= user.email %></strong>
 		<br>
 		<%= message.body %>
 	<% end %>
@@ -42,3 +40,5 @@
 <% end %>
 
 <% end %>
+
+</div>
