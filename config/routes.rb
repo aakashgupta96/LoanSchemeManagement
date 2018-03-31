@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   #root 'home#loan_app'
 
   scope :nodal_employees do 
-    get '/dashboard' => "nodal_employees#dashboard", as: "nodal_employees_dashboard"
+    get '/dashboard' => "nodal_employees#dashboard", as: "nodal_employee_dashboard"
   end
   
   scope :officers do
@@ -59,4 +59,14 @@ Rails.application.routes.draw do
 
   get 'app' => 'home#loan_app'
   match '/app/*path' => 'home#loan_app', via: [:get]
+
+  resources :tickets do
+    resources :messages
+  end
+
+  get "/tickets" => 'tickets#index', as: 'tickets_index'
+  # post "/tickets/:id/messages/new" => 'tickets#create', as: ''
+  post "/ticket/:id/open_change_status" => 'tickets#open_change_status', as: 'open_change_status_ticket'
+  post "/ticket/:id/resolved_change_status" => 'tickets#resolved_change_status', as: 'resolved_change_status_ticket'
+  post "/ticket/:id/escalated_change_status" => 'tickets#escalated_change_status', as: 'escalated_change_status_ticket'
 end
