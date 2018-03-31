@@ -9,9 +9,7 @@ class SchemeProvidersController < ApplicationController
 	private
 
 	def check_status
-		session["user_id"] = nil
-		#byebug
-		#(return redirect_to root_path, notice: "Account Is Not Activated yet.") if current_user.disabled
+		(return redirect_to root_path, notice: "Account Is Not Activated yet.") if current_user.disabled
 	end
 
 end

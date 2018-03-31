@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20180330104213) do
 
   add_index "eligibilities", ["scheme_id"], name: "index_eligibilities_on_scheme_id"
 
-
   create_table "messages", force: :cascade do |t|
     t.text     "body"
     t.integer  "user_id"
@@ -48,8 +47,6 @@ ActiveRecord::Schema.define(version: 20180330104213) do
 
   add_index "messages", ["ticket_id"], name: "index_messages_on_ticket_id"
   add_index "messages", ["user_id"], name: "index_messages_on_user_id"
-
-
 
   create_table "ministries", force: :cascade do |t|
     t.string   "name"

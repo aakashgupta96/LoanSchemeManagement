@@ -1,0 +1,8 @@
+<%= render "/shared/header_admin.html.erb" %>
+
+<% @users.each do |u| %>
+	<div>
+		<%= @user.email %>
+		<%= link_to "Grant Access", "/admins/authorize_scheme_provider?user_id=#{u.id}", class: "btn btn-success", method: :post %>
+	</div>
+<%end%>

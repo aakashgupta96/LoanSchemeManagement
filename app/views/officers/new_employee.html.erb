@@ -1,3 +1,5 @@
+<%= render "/shared/header_nodal_officer.html.erb" %>
+
 <%= form_for(User.new, url: url_for(controller: "officers",action: "create_employee")) do |f| %>
 	<%= f.label "Enter Email Address" %>
 	<%= f.email_field :email, required: true %>

@@ -19,6 +19,7 @@ class Permission
         allow :messages, [:index, :new, :create]
       end
       if user.scheme_provider?
+        allow :ministries, [:show]
         allow :scheme_providers, [:dashboard]
       end
       allow_all if user.admin?

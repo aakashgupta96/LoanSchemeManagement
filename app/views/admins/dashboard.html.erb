@@ -1,31 +1,21 @@
 
-<div class="navbar1">
-<%= image_tag "logo.png", class: "top_img"%>
+<%= render "/shared/header_admin.html.erb" %>
 
-  <div style="display: flex; padding: 0 20px; box-sizing: border-box; align-items: center; justify-content: space-between; width: 100%;">
-  <%= image_tag "start.png", style: "height: 58px; "%>
-  
-    <div style="display: flex;">
-      <ul style="display: flex; " class="dash">
-        <li class="btn btn-danger" id="li_dash"><%= link_to "Add Ministry", new_ministry_path, class: "nav_button"%></li>
-        <li class="btn btn-danger" id="li_dash"><%= link_to "Requests", new_ministry_path, class: "nav_button" %></li>
-         <li class="btn btn-danger" id="li_dash"><%= link_to "Tickets", new_ministry_path, class: "nav_button" %></li>
-        <li id="li_log"><%= link_to "Sign Out", destroy_user_session_path, method: "POST" %></li>
-      </ul>
+<center><h2 style="color:#333e93; font-size: 3em;"><b>MINISTRY LIST</b></h2></center>
+<br>
+
+<div class="row">
+<% @ministries.each do |ministry| %>
+	<!--Card-->
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%=link_to ministry.name, ministry_path(ministry), class: "ministry_name"%></h5>
+        <p class="card-text"><%=ministry.description%></p>
+        <%= link_to "Show Details", ministry_path(ministry), class: "btn btn-primary" %>
+      </div>
     </div>
   </div>
-</div>
-<br><br>
-<!-- 
- -->
-<center><h2 style="color:#333e93"><b>MINISTRY LIST</b></h2></center>
-<br>
-<div class="ministry_list">
-<% @ministries.each do |ministry| %>
-	<div class="ministry_card">
-
-		<%=link_to ministry.name, ministry_path(ministry), class:"ministry_name"%>
-	</div>
 <% end %>
 </div>
 

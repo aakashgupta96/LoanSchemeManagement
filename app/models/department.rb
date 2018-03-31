@@ -5,6 +5,7 @@ class Department < ActiveRecord::Base
 	has_many :schemes
 	has_many :department_employees, class_name: "DepartmentEmployee", foreign_key: "department_id"
 	has_many :employees, through: :department_employees
+	has_many :tickets, dependent: :destroy
 	
 	accepts_nested_attributes_for :officer, allow_destroy: true
 	

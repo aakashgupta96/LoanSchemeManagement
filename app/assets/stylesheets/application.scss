@@ -16,7 +16,7 @@
 
  body
  {
- 	padding-top: 100px;
+ 	padding-top: 130px;
  }
 .new_user{
 	background-color: #b6cee2;
@@ -182,4 +182,17 @@ button {
 
 .add_dept{
 	background-color: #ddd;
+
+}
+.card-demo {
+  height: 140px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 2px 16px;
+  border-radius: 5px;
+  text-align: center;
+  padding-top: 5px;
+  display: flex;
+ align-items: center;
+  width:30%;
+  margin:0px auto;
 }

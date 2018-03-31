@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   scope :admins do
     get "/dashboard" => "admins#dashboard", as: "admin_dashboard"
+    get "/requests" => "admins#authorization_requests", as: "authorization_requests"
+    post "/authorize_scheme_provider" => "admins#authorize_scheme_provider", as: "authorize_scheme_provider"
   end
 
 
